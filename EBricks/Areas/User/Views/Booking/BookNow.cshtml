@@ -1,0 +1,79 @@
+﻿@model ModelLayer.Booking
+
+@{
+    ViewBag.Title = "BookNow";
+}
+
+
+   <b> @ViewBag.Product.ProductName</b>
+<br />
+@ViewBag.Product.Price
+<br />
+@ViewBag.Product.CompanyName
+
+<div class="col-12">
+    <div class="card">
+        <div class="card-header display-4 align-self-md-center">
+            Book now
+        </div>
+
+        <div class="card-body">
+           <form method="post">
+                <div class="col-md-6">
+
+                    <div class="form-group">
+                        <label>Quantity</label>
+                        <input type="hidden" name="ProductId" value="@ViewBag.Product.Id" />
+                        @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Postal Code</label>
+                        @Html.EditorFor(model => model.ShippingAddress.PostalCode, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ShippingAddress.PostalCode, "", new { @class = "text-danger" })
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Locality</label>
+                        @Html.EditorFor(model => model.ShippingAddress.Locality, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ShippingAddress.Locality, "", new { @class = "text-danger" })
+                    </div>
+
+                    
+                    <div class="form-group">
+                        <label>City</label>
+                        @Html.EditorFor(model => model.ShippingAddress.City, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ShippingAddress.City, "", new { @class = "text-danger" })
+                    </div>
+               <div class="form-group">
+                   <label>District</label>
+                   @Html.EditorFor(model => model.ShippingAddress.District, new { htmlAttributes = new { @class = "form-control" } })
+                   @Html.ValidationMessageFor(model => model.ShippingAddress.District, "", new { @class = "text-danger" })
+               </div>
+
+               <div class="form-group">
+                   <label>Contact No</label>
+                   @Html.EditorFor(model => model.ShippingAddress.ContactNo, new { htmlAttributes = new { @class = "form-control" } })
+                   @Html.ValidationMessageFor(model => model.ShippingAddress.ContactNo, "", new { @class = "text-danger" })
+               </div>
+                    <div class="form-group">
+                        <label>Landmark</label>
+                        @Html.EditorFor(model => model.ShippingAddress.Landmark, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ShippingAddress.Landmark, "", new { @class = "text-danger" })
+                    </div>
+                    
+
+                    <div class="form-group">
+                        <input type="submit" value="Buy Now" class="btn btn-primary btn-block" />
+
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>  

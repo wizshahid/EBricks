@@ -1,0 +1,102 @@
+﻿
+<script src="~/Areas/Admin/Assets/AdminScript.js"></script>
+<div class="col-12">
+    <div class="card">
+        <div class="card-header display-4 align-self-md-center">
+            Add Category
+        </div>
+
+        <div id="SpinnerDiv" class="ajaxloader">
+            <img src="~/Images/ezgif-1-a2b87b265e.gif" />
+        </div>
+        <div class="card-body">
+            <div id="divMessage" class="collapse">
+
+            </div>
+            <form id="categoryForm">
+                <div class="form-group">
+                    <input type="text" name="CategoryName" placeholder="Enter Category Name..." id="CategoryName" class="form-control" required />
+                </div>
+                <div class="form-group">
+                    <input type="button" id="btnAddCategory" value="Add Category" class="btn btn-outline-primary btn-block" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-12">
+    <div class="card">
+
+        <div class="card-body">
+            <table class="table table-hover table-responsive-sm table-responsive-xl">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Category</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModal-label">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+            </div>
+            <div class="modal-body">
+                <h4>Are you Sure you Want to delete this??</h4>
+
+
+                <div id="DelCategoryDiv">
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModal-label">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <h4 class="modal-title" id="myModal-label">Edit Category</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form id="editCategoryForm">
+                    <input type="hidden" id="editId" name="Id" />
+                    <div class="form-group">
+                        <label>Category</label>
+                        <input type="text" name="CategoryName" required id="editCategoryName" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <button type="button" id="btnEditCategory" class="btn btn-primary btn-block">Save</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+
+        getCategories();
+        
+    
+    });
+</script>

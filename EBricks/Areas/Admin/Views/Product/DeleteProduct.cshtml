@@ -1,0 +1,55 @@
+﻿@model ModelLayer.Product
+
+@{
+    ViewBag.Title = "DeleteProduct";
+}
+
+<h2>DeleteProduct</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <div>
+        <div class="col-md-4">
+            <div> <strong> Product Code</strong>  : @Model.ProductCode </div>
+
+            <div> <b> Product Name</b>  : @Model.ProductName </div>
+        </div>
+        <div class="col-md-4">
+            <div> <b>Category</b> : @Model.Category.CategoryName </div>
+
+            <div> <b>Company</b> : @Model.CompanyName </div>
+        </div>
+        <div class="col-md-4">
+            <div> <b>Price</b> : @Model.Price @Model.Unit </div>
+
+            <div> <b>MRP</b> : @Model.MRP </div>
+        </div>
+    </div>
+    <br />
+    <hr />
+
+    <div>
+        @foreach (var item in Model.ProductImages)
+        {
+            <div class="col-md-4">
+                <img src="@item.ImagePath" class="img-responsive" style="height:150px;" alt="Alternate Text" />
+            </div>
+        }
+
+    </div>
+    <br />
+    <hr />
+    <div>
+        <h2 class="text-center">Description</h2>
+        <hr />
+        @Model.Description
+    </div>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger btn-block" /> 
+        </div>
+    }
+</div>

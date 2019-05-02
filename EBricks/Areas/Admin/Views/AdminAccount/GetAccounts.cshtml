@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ModelLayer.Account>
+
+@{
+    ViewBag.Title = "GetAccounts";
+}
+
+<h2>GetAccounts</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th> Action</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+           @if (item.IsActive == true)
+           {
+            @Html.ActionLink("Block", "BlockUser", new { id = item.Id }, new { @class = "btn btn-danger btn-block" })
+           }
+           else
+           {
+            @Html.ActionLink("Unblock", "BlockUser", new { id = item.Id }, new { @class = "btn btn-primary btn-block" })
+           }
+            
+        </td>
+    </tr>
+}
+
+</table>

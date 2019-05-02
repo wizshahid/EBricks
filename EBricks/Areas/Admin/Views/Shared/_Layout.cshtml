@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EBricks-Admin Panel</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/simple-line-icons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="~/Content/Adminstyles.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-2.2.4.min.js"></script>
+    
+
+</head>
+
+
+
+<body class="sidebar-fixed header-fixed">
+    <div class="page-wrapper">
+        <nav class="navbar page-header">
+            <a href="#" class="btn btn-link sidebar-mobile-toggle d-md-none mr-auto">
+                <i class="fa fa-bars"></i>
+            </a>
+
+            <a class="navbar-brand" href="#">
+                Ebricks Admin Panel
+            </a>
+
+            <a href="#" class="btn btn-link sidebar-toggle d-md-down-none">
+                <i class="fa fa-bars"></i>
+            </a>
+
+            <ul class="navbar-nav ml-auto">
+
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img class="avatar avatar-sm" id="dpImage" alt="DP">
+                        <span id="profileName" class="small ml-1 d-md-down-none text-capitalize font-weight-bold"></span>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <div class="dropdown-header">Account</div>
+
+                        <a href="/publisher/profile" class="dropdown-item">
+                            <i class="fa fa-user"></i> Profile
+                        </a>
+                        <a href="/publisher/editprofile" class="dropdown-item">
+                            <i class="fa fa-edit"></i> Edit Profile
+                        </a>
+
+                        <a href="/publisher/feedback" class="dropdown-item">
+                            <i class="fa fa-envelope"></i> Messages
+                        </a>
+
+
+
+                        <button type="button" id="btnLogout" class="dropdown-item">
+                            <i class="fa fa-lock"></i> Logout
+                        </button>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="main-container">
+            <div class="sidebar">
+                <nav class="sidebar-nav">
+                    <ul class="nav">
+                        <li class="nav-title">Navigation</li>
+
+                        <li class="nav-item">
+                            <a href="/admin/adminhome/index" class="nav-link active">
+                                <i class="fa fa-home"></i> Home
+                            </a>
+                        </li>
+                   <li class="nav-item nav-dropdown">
+                                <a href="#" class="nav-link nav-dropdown-toggle">
+                                    <i class="fa fa-user-circle"></i> Accounts <i class="fa fa-caret-left"></i>
+                                </a>
+
+                                <ul class="nav-dropdown-items">
+                                    <li class="nav-item">
+                                        <a href="/admin/adminaccount/createaccount" class="nav-link">
+                                            <i class="fa fa-plus-circle"></i> Create Account
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="/admin/adminaccount/getaccounts" class="nav-link">
+                                            <i class="fas fa-user-minus"></i> Manage Account
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        <li class="nav-item">
+                            <a href="/admin/category/categories" class="nav-link">
+                                <i class="fas fa-clipboard-list"></i> Categories
+                            </a>
+                        </li>
+
+
+
+                        <li class="nav-item nav-dropdown">
+                            <a href="#" class="nav-link nav-dropdown-toggle">
+                                <i class="fa fa-upload"></i> Products <i class="fa fa-caret-left"></i>
+                            </a>
+
+                            <ul class="nav-dropdown-items">
+                                <li class="nav-item">
+                                    <a href="/admin/product/addproduct" class="nav-link">
+                                        <i class="fa fa-plus-circle"></i> Add Product
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a href="/admin/product/getproducts" class="nav-link">
+                                            <i class="fas fa-cloud-download-alt"></i> Manage Products
+                                        </a>
+                                    </li>
+                                
+                               
+
+                            </ul>
+                        </li>
+                       
+
+                    </ul>
+                </nav>
+            </div>
+
+
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+
+
+                        @RenderBody()
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/carbon.js"></script>
+    <script src="~/Scripts/demo.js"></script>
+
+    @RenderSection("scripts", required: false)
+    @*<script>
+    $("#btnLogout").click(function() {
+        $.ajax({
+            url: "/api/Account/Logout",
+            method: "post",
+            headers: { 'Authorization': 'Bearer ' + token },
+            success: function() {
+                localStorage.removeItem("access_token");
+                localStorage.removeItem("userName_token");
+                localStorage.removeItem("AccountId");
+                window.location.href = "/";
+            }
+        });
+
+    });
+
+    $.ajax({
+        url: "/GetName/" + localStorage.getItem("AccountId"),
+        method: "get",
+        headers: { 'Authorization': 'Bearer ' + localStorage.getItem("access_token")},
+        success: function (name) {
+            $("#profileName").text(name.Name);
+            $("#dpImage").attr("src",name.ImagePath);
+        }
+        });
+    </script>*@
+
+</body>
+</html>

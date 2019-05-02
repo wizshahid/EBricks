@@ -1,0 +1,100 @@
+﻿@model ModelLayer.Product
+
+@{
+    ViewBag.Title = "AddProduct";
+}
+
+
+
+@if (ViewBag.Message != null)
+{
+    if (ViewBag.Message == "Success")
+    {
+        <div class="alert alert-success">
+            Product Added  Successfully
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger">
+            @ViewBag.Message
+        </div>
+    }
+}
+
+<div class="col-12">
+    <h2 class="text-center">Add Product</h2>
+        @using (Html.BeginForm("AddProduct", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div style="display:flex; justify-content:space-around; flex-wrap:wrap;">
+               
+                <div class="card text-center col-md-6">
+
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Product Code</label>
+                            @Html.EditorFor(model => model.ProductCode, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ProductCode, "", new { @class = "text-danger" })
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>Product Name</label>
+                            @Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>Brand</label>
+                            @Html.EditorFor(model => model.CompanyName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <label>Select Images</label>
+                            <input type="file" name="Files" multiple accept="image/*" class="form-control glyphicon-upload" value="" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Market Price</label>
+                            @Html.EditorFor(model => model.MRP, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.MRP, "", new { @class = "text-danger" })
+                        </div>
+
+                    </div>
+                </div>
+                    <div class="card text-center col-md-6">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label>Discounted Price</label>
+                                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group">
+                                <label>Unit of Price</label>
+                                @Html.EditorFor(model => model.Unit, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Unit, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label>Select Category</label>
+                                @Html.DropDownListFor(model => model.CategoryId, null, "Select Category", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group">
+                                <input type="submit" value="Add Product" class="btn btn-primary btn-block" />
+
+                            </div>
+                        </div>
+                        </div>
+                </div>
+                        }
+
+                    </div>

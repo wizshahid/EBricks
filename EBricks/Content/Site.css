@@ -1,0 +1,43 @@
+﻿
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /*background: #c8d6e5;*/
+}
+
+.bg-default-workforce {
+    background: #341f97 !important;
+}
+
+.hero {
+    background: #2e86de !important;
+}
+
+.jumbotron {
+    border-radius: 0px !important;
+}
+
+.btn-color {
+    background: #fff !important;
+    color: #636e72 !important;
+}
+
+
+.workforce-textbox {
+    padding: 10px 20px;
+    color: #fff;
+    min-width: 380px;
+    border: none;
+    background: none;
+    border-bottom: 1px solid #fff;
+}
+
+#footer {
+    background: #341f97;
+    padding: 10px;
+    width: 100%;
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="83a3d814968c4537a155e1229615896b" Name="Diagram1">
+        <EntityTypeShape EntityType="EBricksDBModel.Account" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EBricksDBModel.Booking" Width="1.5" PointX="5.25" PointY="3.5" />
+        <EntityTypeShape EntityType="EBricksDBModel.Category" Width="1.5" PointX="0.75" PointY="6" />
+        <EntityTypeShape EntityType="EBricksDBModel.ProductImage" Width="1.5" PointX="5.25" PointY="0.875" />
+        <EntityTypeShape EntityType="EBricksDBModel.Product" Width="1.5" PointX="3" PointY="0.875" />
+        <EntityTypeShape EntityType="EBricksDBModel.ShippingAddress" Width="1.5" PointX="3" PointY="6" />
+        <AssociationConnector Association="EBricksDBModel.FK__Bookings__Custom__21B6055D" />
+        <AssociationConnector Association="EBricksDBModel.FK__Products__Posted__173876EA" />
+        <AssociationConnector Association="EBricksDBModel.FK__ShippingA__Accou__1DE57479" />
+        <AssociationConnector Association="EBricksDBModel.FK__Bookings__Addres__22AA2996" />
+        <AssociationConnector Association="EBricksDBModel.FK__Bookings__Produc__20C1E124" />
+        <AssociationConnector Association="EBricksDBModel.FK__Products__Catego__182C9B23" />
+        <AssociationConnector Association="EBricksDBModel.FK__ProductIm__Produ__1B0907CE" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
